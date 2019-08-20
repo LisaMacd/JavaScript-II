@@ -4,22 +4,29 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+let kennel = "Take dogs to Pretty Kennels";
+function exampleKennel(){
+  return kennels;
+}
+console.log(exampleKennel());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
 // ==== Challenge 2: Implement a "counter maker" function ====
-const counterMaker = () => {
-  // IMPLEMENTATION OF counterMaker:
-  // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
-  // 2- Declare a function `counter`. It should increment and return `count`.
-  //      NOTE: This `counter` function, being nested inside `counterMaker`,
-  //      "closes over" the `count` variable. It can "see" it in the parent scope!
-  // 3- Return the `counter` function.
+const counterMaker = function(closure = 0){
+
+  let value = closure;
+  return function count(){
+    value += 4;
+    console.log(value);
+    return value;
+  }
 };
-// Example usage: const myCounter = counterMaker();
-// myCounter(); // 1
-// myCounter(); // 2
+const myCounter = counterMaker();
+
+myCounter(); 
+myCounter(); 
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
