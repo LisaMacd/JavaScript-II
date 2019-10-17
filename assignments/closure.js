@@ -4,6 +4,11 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+let kennel = "Take dogs to Pretty Kennels";
+function exampleKennel(){
+  return kennels;
+}
+console.log(exampleKennel());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -20,6 +25,20 @@ const counterMaker = () => {
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
+
+const counterMaker = function(counter = 0){
+
+  let value = counter;
+  return function count(){
+    value += 4;
+    console.log(value);
+    return value;
+  }
+};
+const myCounter = counterMaker();
+
+myCounter(); 
+myCounter(); 
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
